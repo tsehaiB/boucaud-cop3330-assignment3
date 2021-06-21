@@ -1,3 +1,7 @@
+/*
+ *  UCF COP3330 Summer 2021 Assignment 3 Solution
+ *  Copyright 2021 Tsehai Boucaud
+ */
 package ex43;
 
 import org.junit.jupiter.api.Test;
@@ -11,13 +15,14 @@ class indexFileTest {
         //given
         indexFile myIndex = new indexFile();
         //when
-        String expected = "<!DOCTYPE html>\n" +
-                "<html>\n" +
-                "\t<head>\n" +
-                "\t\t<title> \"potatoes\" </title>\n" +
-                "\t\t<meta name=\"author\" content=\"James Baxter\">\n" +
-                "\t</head>\n" +
-                "</html>";
+        String expected = """
+                <!DOCTYPE html>
+                <html>
+                \t<head>
+                \t\t<title> "potatoes" </title>
+                \t\t<meta name="author" content="James Baxter">
+                \t</head>
+                </html>""";
         String actual = myIndex.generateIndex("James Baxter", "potatoes");
         //then
         assertEquals(expected, actual);
