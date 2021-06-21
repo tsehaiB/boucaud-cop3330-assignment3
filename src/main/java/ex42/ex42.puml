@@ -1,0 +1,53 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+class Application{
+    - reader : inpFile
+    - writer : outFile
+    - formatter : formatStrings
+
+    + main()
+    - readFile(inputFile reader)
+    - formatAll(FormatStrings formatter)
+    - writeFile(outputFile writer, String formattedOut)
+}
+class inputFile{
+    - input : File
+
+    + constructReader()
+    + storeInStringArray(Scanner reader)
+}
+class outputFile{
+    - output : File
+
+    + constructWriter()
+    + printToFile(FileWriter writer, String formattedStrings)
+}
+class formatStrings{
+    - formattedOutput : String
+
+    + formatPerson(person one)
+    + formatAll(ArrayList<people> allPeople)
+    + createPeople(ArrayList<String>/;)
+    + addHeader(String formatted)
+}
+class person{
+    - first : String
+    - last : String
+    - salary : String
+
+    + getFirst();
+    + getLast();
+    + getSalary();
+
+    + setFirst();
+    + setLast();
+    + setSalary();
+
+    + splitString(String firstLastSalary)
+    + assignSplit(String[] categories)
+}
+Application o--> inputFile
+Application o--> outputFile
+Application o--> formatStrings
+formatStrings o--> person
+@enduml

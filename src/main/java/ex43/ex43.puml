@@ -1,0 +1,34 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+class Application{
+    + main()
+    }
+class Website{
+    - inp : Scanner
+
+    + readString()
+    + readBool()
+    + allDirectories(String name, String author, boolean js, boolean css)
+}
+class createIndex{
+    + constructWriter(String path)
+    + printToIndex(FileWriter writer, String index)
+}
+class Directories{
+    - makeIndex : indexFile
+
+    + addIndex(String author, String name, String path)
+    + makeRootDir(String name)
+    + makeDir(String root, String newDir, String name)
+    + printConfirm(String path)
+}
+class indexFile{
+    - indexMaker : createIndex
+    + generateIndex(String author, String name);
+    + makeIndex(String index)
+    }
+Application o--> Website
+Website o--> Directories
+Directories o--> indexFile
+indexFile  o--> createIndex
+@enduml

@@ -1,0 +1,36 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+class Application{
+    - reader : inputFile
+    - writer : outputFile
+    - sorter : nameSort
+
+    + main()
+    - readFile(inputFile reader)
+    - sortNames(nameSort sorter, ArrayList<String> unsortedNames)
+    - writeFile(outputFile writer, ArrayList<String> sortedNames)
+}
+class inputFile{
+    - input : File
+
+    + constructReader()
+    + storeInStringArray(Scanner reader)
+}
+class outputFile{
+    - output : File
+
+    + constructWriter()
+    + printToFile(FileWriter writer, ArrayList<String> sortedNames)
+}
+class nameSort{
+    - namesUnsorted : ArrayList<String>
+    - sortedNames : ArrayList<String>
+
+    + addToSorted(String newName)
+    + addAllNames(ArrayList<String> unsorted)
+}
+Application o--> inputFile
+Application o--> outputFile
+Application o--> nameSort
+
+@enduml
